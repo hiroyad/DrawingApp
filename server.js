@@ -46,7 +46,15 @@ server.on('listening', () => {
 
 
 // Web sockets
-const io = require('socket.io')(server)
+  const options = {
+    cookie: false,
+    serveClient: false,
+    pingTimeout: 15000, // default: 60000
+    pingInterval: 13000 // default: 25000
+    // transports: ['polling']
+  }
+  const io = SocketIO(server, options)
+//const io = require('socket.io')(server)
 
 io.sockets.on('connection', (socket) => {
 	console.log('Client connected: ' + socket.id)
