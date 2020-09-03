@@ -10,7 +10,7 @@ function setup() {
 	cv.background(255, 255, 255)
 
 	// Start the socket connection
-	socket = io.connect('https://jg-drawing-app.herokuapp.com')
+	socket = io.connect()
 
 	// Callback function
 	socket.on('mouse', data => {
